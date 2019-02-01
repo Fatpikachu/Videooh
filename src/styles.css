@@ -1,0 +1,87 @@
+h1 {
+  display: inline;
+}
+
+.username {
+  /* display: inline-block; */
+  float: right;
+}
+
+.profile-pic {
+  width: 30px;
+}
+
+h1:hover {
+  border-top: 10px;
+  background: rgb(122, 122, 204)
+}
+
+.video-snippet {
+  height: 130px;
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position:relative;
+  
+}
+
+.video-snippet.yt {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(196, 66, 66);
+}
+
+.video-snippet.dm {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(78, 91, 203);
+}
+
+.video-list {
+  float:right;
+  overflow-y:auto;
+  height: 600px;
+
+}
+
+.video-img {
+  height: 120px;
+  width: 160px;
+  float: left;
+  margin-right: 10px
+}
+
+.snippet-title {
+  float: right;
+  font-style: bold;
+  font-size: 20px;
+  width: 330px;
+  height: 55px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.snippet-description {
+  float: right;
+  font-size: 16px;
+  width: 330px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.paginate { 
+  float: right;
+}
+
+.no-vid {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+
+.video-player {
+  margin-top: 30px;
+}
