@@ -19,7 +19,8 @@ class Homepage extends Component {
       prevPageToken: data.yt.prevPageToken || '',
       query: data.query,
       yt: data.yt.items,
-      dm: data.dm.list })
+      dm: data.dm.list,
+      vm: data.vmData })
   }
 
   searchVideos = (query, pageToken, dmPagenate) => {
@@ -74,6 +75,7 @@ class Homepage extends Component {
        prevPageToken={this.state.prevPageToken}
        ytData={this.state.yt}
        dmData={this.state.dm}
+       vmData={this.state.vm}
        searchWords={this.state.query}
        searchVideos={this.searchVideos} 
        displayVid={this.displayVid} />

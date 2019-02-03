@@ -27,14 +27,20 @@ h1:hover {
 
 .video-snippet.yt {
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
   border-color: rgb(196, 66, 66);
 }
 
 .video-snippet.dm {
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
   border-color: rgb(78, 91, 203);
+}
+
+.video-snippet.vm {
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(171, 179, 63);
 }
 
 .video-list {

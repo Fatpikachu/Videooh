@@ -26,6 +26,7 @@ class VideoList extends Component {
   render(){
     let ytData = []
     let dmData = this.props.dmData || [];
+    let vmData = this.props.vmData || [];
     dmData.forEach((item)=>{item.source = 'dm'});
     if(this.props.ytData){
       for(let item of this.props.ytData){
@@ -36,7 +37,7 @@ class VideoList extends Component {
                           source: 'yt' })
       }
     }
-    let allData = ytData.concat(dmData)
+    let allData = ytData.concat(dmData, vmData)
     console.log('the allData: ', allData)
     return (
       <div>

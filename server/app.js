@@ -78,7 +78,7 @@ app.get('/searchVids', async (req, res) => {
       query: {
         page: 1,
         per_page: 5,
-        query: 'park bom',
+        query: req.query.q,
         fields: 'uri,name,description,duration'
       }
     }, function (error, body, status_code, headers) {
@@ -87,15 +87,33 @@ app.get('/searchVids', async (req, res) => {
       }
       resolve(body);
     })})
-  
- 
-  var yt = await ytVids.json();
-  var dm = await dmVids.json();
-  var vmData = await vimeoData;
+    
+    vimeoData = await vimeoData;
 
-  let vids = {yt, dm, vmData}
-  console.log('alllll the vids~~ ', vids)
-  res.json(vids);
+    vimeoData = vimeoData.data.map(async info => {
+      let thumbnail = new Promise((resolve, reject) => {
+      client.request({
+        method: 'GET',
+        path: `${info.uri}/pictures/`,
+      }, function (error, body, status_code, headers) {
+        if (error) {
+          console.log(error);
+        }
+        resolve(body);
+      })})
+      thumbnail = await thumbnail;
+      return { description: info.description,
+        id: info.uri.slice(8),
+        title: info.name,
+        thumbnail_120_url: thumbnail.data[0].sizes[2].link, 
+        source: 'vm' }
+    })
+    vmData = await Promise.all(vimeoData);
+    var yt = await ytVids.json();
+    var dm = await dmVids.json();
+
+    let vids = { yt, dm, vmData }
+    res.json(vids);
 })
 
 const server = app.listen(port, () => {
@@ -103,5 +121,3 @@ const server = app.listen(port, () => {
 });
 
 module.exports = app;
-//https://www.googleapis.com/youtube/v3/search?q=one piece&
-//key=AIzaSyBwdzYdi9k4ELXZcLyrmfY9jhM30voslxc&maxResults=10&part=snippet&type=video
