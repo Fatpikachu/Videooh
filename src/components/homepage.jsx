@@ -4,6 +4,7 @@ import AuthService from '../services/AuthService.js';
 import Search from './search.jsx';
 import VideoList from './videolist.jsx';
 import VideoPlayer from './videoplayer.jsx';
+import Vimeo from '@vimeo/player'
 
 class Homepage extends Component {
   constructor(props){
@@ -11,6 +12,7 @@ class Homepage extends Component {
     this.state = {
       profilePic: '',
       dmPage: 1,
+      link: '',
     }
   }
 
@@ -58,6 +60,15 @@ class Homepage extends Component {
 
   render(){
     let username = localStorage.getItem('username');
+    let videoPlayer;
+    if(this.state.link.slice(0, 13) === 'https://vimeo'){
+      var options = {
+        url: this.state.link,
+        width: 600,
+        autoplay: true,
+      }
+      videoPlayer = new Vimeo('myVideo', options);
+    }
     return (
     <div>
       <h1 className='welcome-box'> Welcome  </h1>
@@ -79,10 +90,13 @@ class Homepage extends Component {
        searchWords={this.state.query}
        searchVideos={this.searchVideos} 
        displayVid={this.displayVid} />
+       {/* <div id='myVideo'></div> */}
        {
          this.state.link
          ? <VideoPlayer link={this.state.link} />
-         : <div className='no-vid'>No video selected</div>
+        //  : videoPlayer
+        //  ? videoPlayer
+         : <div id='no-vid'>No video selected</div>
        }
     </div>
     )

@@ -8,7 +8,7 @@ h1 {
 }
 
 .profile-pic {
-  width: 30px;
+  width: 80px;
 }
 
 h1:hover {
@@ -79,9 +79,9 @@ h1:hover {
   float: right;
 }
 
-.no-vid {
+#no-vid {
   height: 600px;
-  width: 800px;
+  width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
