@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import ApiService from '../services/ApiService.js';
 import AuthService from '../services/AuthService.js';
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 import Search from './search.jsx';
 import VideoList from './videolist.jsx';
 import VideoPlayer from './videoplayer.jsx';
@@ -12,6 +17,7 @@ class Homepage extends Component {
       profilePic: '',
       dmPage: 1,
       link: '',
+      loading: false,
     }
   }
 
@@ -21,10 +27,13 @@ class Homepage extends Component {
       query: data.query,
       yt: data.yt.items,
       dm: data.dm.list,
-      vm: data.vmData })
+      vm: data.vmData,
+      loading: false })
   }
 
-  searchVideos = (query, pageToken, dmPagenate) => {
+  searchVideos = (e, query, pageToken, dmPagenate) => {
+    e.preventDefault();
+    this.setState({ loading: true })
     let dmPage = this.state.dmPage;
     if(dmPagenate === 'up'){
       dmPage++;
@@ -49,28 +58,36 @@ class Homepage extends Component {
   }
   
   componentWillMount = () => {
-    ApiService.myIG()
-    .then((res) =>{
-      this.setState({profilePic: res.data.profile_picture})
-    }).catch(err => {
-      console.log('error from finding IG info')
-    })
+    let imgurl = localStorage.getItem('imageurl')
+    console.log('the imgurl: ', imgurl)
+    if(imgurl !== 'null'){
+      this.setState({profilePic: imgurl })
+    } else {
+      ApiService.myIG()
+      .then((res) =>{
+        this.setState({profilePic: res.data.profile_picture})
+      }).catch(err => {
+        console.log('error from finding IG info')
+      })
+    }
   }
 
   render(){
     let username = localStorage.getItem('username');
-    
+  
     return (
     <div>
       <h1 className='welcome-box'> Welcome  </h1>
-      <div className='username'>
+      <NavLink to='/profile'>
+      <div className='user-container'>
       {
           this.state.profilePic
-          ? <img className='profile-pic' src={this.state.profilePic} alt=""/>
+          ? <img className='profile-pic' src={this.state.profilePic} />
           : null
       }
-        <h1>  {username}</h1>
+        <div className='username'>{username}</div>
       </div>
+      </NavLink>
       <button className='logout-button' onClick={this.handleLogout}>Logout</button>
       <Search searchVideos={this.searchVideos} />
       <VideoList nextPageToken={this.state.nextPageToken}
@@ -80,12 +97,8 @@ class Homepage extends Component {
        vmData={this.state.vm}
        searchWords={this.state.query}
        searchVideos={this.searchVideos} 
-       displayVid={this.displayVid} />
-       {/* {
-         this.state.link
-         ? <VideoPlayer link={this.state.link} />
-         : <div id='no-vid'>No video selected</div>
-       } */}
+       displayVid={this.displayVid} 
+       loading={this.state.loading} />
        <VideoPlayer link={this.state.link} />
     </div>
     )

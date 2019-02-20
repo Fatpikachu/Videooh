@@ -23,6 +23,8 @@ class Login extends Component {
       .then((token) => {
         let decoded = decode(token);
         localStorage.setItem('username', decoded.username);
+        localStorage.setItem('userID', decoded.id);
+        localStorage.setItem('imageurl', decoded.imageurl);
         this.setState({error: false})
         this.props.history.push('/homepage')
         })

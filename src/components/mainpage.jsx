@@ -16,25 +16,20 @@ class Mainpage extends Component {
   }
 
   render(){
-
     return (
-    <div>
-      {
-      AuthService.loggedIn() ?
-      <Homepage />
-      :
-      (<div>
-      <h1 className='welcome-box'> 看看看~! </h1>
-        <p>watch anime and dramas sign in to watch!</p>
-        <NavLink to='/login'> login </NavLink>
-        <NavLink to='/signup'> signup </NavLink>
-        </div>
+      <div>
+        {
+        AuthService.loggedIn()
+        ? <Homepage />
+        : <div>
+          <h1 className='welcome-box'> 看看 Videooh~! </h1>
+          <NavLink to='/login'> login </NavLink>
+          <NavLink to='/signup'> signup </NavLink>
+         </div>
+        }
+      </div>
       )
-      }
-    </div>
-    )
-  }
-
+    }
 }
 
 export default Mainpage;

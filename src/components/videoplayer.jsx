@@ -36,7 +36,7 @@ class VideoPlayer extends Component {
         link.slice(0, 13) === 'https://vimeo'
         ? <div id='myVideo'></div>
         : link
-        ? <iframe className='video-player' width="800" height="600"
+        ? <iframe className='video-player' width="800" height="600" allowfullscreen="allowfullscreen"
           src={this.props.link}>
         </iframe>
         : <div id='no-vid'>No video selected</div>

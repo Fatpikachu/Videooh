@@ -11,6 +11,7 @@ import Mainpage from './components/mainpage.jsx';
 import Login from './components/login.jsx';
 import Signup from './components/signup.jsx';
 import Homepage from './components/homepage.jsx';
+import EditProfile from './components/editprofile.jsx';
 
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
           <Route exact path='/' component={Mainpage} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
+          <SecretRoute exact path='/profile' component={EditProfile} />
           <SecretRoute path='/homepage' component={Homepage} />
         </div>
       </HashRouter>

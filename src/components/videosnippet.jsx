@@ -15,7 +15,7 @@ class VideoSnippet extends Component {
     let link = {
       yt: `https://www.youtube.com/embed/${this.props.data.id}?autoplay=1`,
       dm: `https://www.dailymotion.com/embed/video/${this.props.data.id}?autoplay=1`,
-      vm: `https://player.vimeo.com/video/${this.props.data.id}?autoplay=true`
+      vm: `https://player.vimeo.com/video/${this.props.data.id}?autoplay=true?`
     }
     this.setState({link: link[this.props.data.source]})
   }

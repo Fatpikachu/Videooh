@@ -7,16 +7,16 @@ class VideoList extends Component {
   constructor(props){
     super(props);
     this.state = {
-
+      
     }
   }
 
-  nextPage = () => {
-    this.props.searchVideos(this.props.searchWords, this.props.nextPageToken, 'up')
+  nextPage = (e) => {
+    this.props.searchVideos(e, this.props.searchWords, this.props.nextPageToken, 'up')
   }
 
-  prevPage = () => {
-    this.props.searchVideos(this.props.searchWords, this.props.prevPageToken, 'down')
+  prevPage = (e) => {
+    this.props.searchVideos(e, this.props.searchWords, this.props.prevPageToken, 'down')
   }
    
   componentWillMount(){
@@ -27,6 +27,7 @@ class VideoList extends Component {
     let ytData = []
     let dmData = this.props.dmData || [];
     let vmData = this.props.vmData || [];
+    let loading = this.props.loading;
     dmData.forEach((item)=>{item.source = 'dm'});
     if(this.props.ytData){
       for(let item of this.props.ytData){
@@ -40,14 +41,16 @@ class VideoList extends Component {
     let allData = ytData.concat(dmData, vmData)
     console.log('the allData: ', allData)
     return (
-      <div>
+      <div className='wide-wrapper'>
         <div className='paginate'>
         <button onClick={this.prevPage}> &lt; </button>
         <button onClick={this.nextPage}> &gt; </button>
         </div>
         <div className='video-list'>
           {
-          allData.length > 0
+          loading
+          ? <div className="loader"></div>
+          : allData.length > 0
           ? allData.map((item, idx) => {
             return <VideoSnippet displayVid={this.props.displayVid} key={idx} data={item}/>
             })    

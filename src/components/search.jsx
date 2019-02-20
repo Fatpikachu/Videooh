@@ -18,12 +18,16 @@ class Search extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+
+
       
   render(){
     return (
     <div>
+      <form onSubmit={(e)=>{this.props.searchVideos(e, this.state.query)}}>
        <input className="input-search" name='query' type="text" onChange={this.onChange} />
-       <button className="search-button" onClick={()=>{this.props.searchVideos(this.state.query)}}></button>
+       <button className="search-button" type="submit" ></button>
+      </form>
     </div>
     )
   }
