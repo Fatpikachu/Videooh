@@ -33,8 +33,8 @@ class Homepage extends Component {
       .then(results => {
         results.query = query;
         this.setData(results);
-        console.log('the results from both platforms: ', results)
-      }).catch(err => console.log('error from searching YT: ', err))
+        console.log('the results from all 3: ', results)
+      }).catch(err => console.log('error from searching: ', err))
   }
 
   handleLogout = () => {

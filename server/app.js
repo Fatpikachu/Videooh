@@ -11,8 +11,12 @@ const db = require('./database/index');
 const exjwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const boom = require('boom');
-const { accessToken, youtubeAPIKey } = require('./config.js')
+const { accessToken, youtubeAPIKey, vimeoClientId, vimeoAccessToken, vimeoSecret } = require('./config.js')
 const fetch = require('node-fetch');
+
+let Vimeo = require('vimeo').Vimeo;
+let client = new Vimeo(vimeoClientId, vimeoSecret, vimeoAccessToken);
+
 
 app.post('/users', async (req, res) => {
   const { username, email, password } = req.body;
@@ -66,9 +70,31 @@ app.get('/searchVids', async (req, res) => {
   const dmVids = await fetch(url2, {
     method: 'GET',
   })
+
+  let vimeoData = new Promise((resolve, reject) => {
+    client.request({
+      method: 'GET',
+      path: '/videos',
+      query: {
+        page: 1,
+        per_page: 5,
+        query: 'park bom',
+        fields: 'uri,name,description,duration'
+      }
+    }, function (error, body, status_code, headers) {
+      if (error) {
+        console.log(error);
+      }
+      resolve(body);
+    })})
+  
+ 
   var yt = await ytVids.json();
   var dm = await dmVids.json();
-  let vids = {yt, dm}
+  var vmData = await vimeoData;
+
+  let vids = {yt, dm, vmData}
+  console.log('alllll the vids~~ ', vids)
   res.json(vids);
 })
 
