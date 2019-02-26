@@ -7,6 +7,7 @@ class Search extends Component {
   constructor(props){
     super(props);
     this.state = {
+      open: false,
     }
   }
 
@@ -18,15 +19,19 @@ class Search extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-
-
+  toggleClass = () => {
+    this.setState({open: !this.state.open})
+  }
       
   render(){
+    var open = this.state.open ? 'open' : null
     return (
-    <div>
+      <div className={"search " + open} >
       <form onSubmit={(e)=>{this.props.searchVideos(e, this.state.query)}}>
-       <input className="input-search" name='query' type="text" onChange={this.onChange} />
-       <button className="search-button" type="submit" ></button>
+        <input name='query' type="search" className="search-box" onChange={this.onChange} />
+          <span className="search-button" onClick={this.toggleClass}>
+          <span className="search-icon"></span>
+          </span>
       </form>
     </div>
     )

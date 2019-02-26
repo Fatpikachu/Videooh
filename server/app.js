@@ -13,7 +13,7 @@ const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
 const boom = require('boom');
 
-const { accessToken, youtubeAPIKey, vimeoClientId, vimeoAccessToken, vimeoSecret, s3Key, s3ID } = require('./config.js')
+const { accessToken, youtubeAPIKey, vimeoClientId, vimeoAccessToken, vimeoSecret, s3Key, s3ID } = require('../config/config.js')
 
 let Vimeo = require('vimeo').Vimeo;
 let client = new Vimeo(vimeoClientId, vimeoSecret, vimeoAccessToken);
