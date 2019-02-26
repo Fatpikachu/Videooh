@@ -7,7 +7,7 @@ const {
   password,
   host,
   port,
-} = require('../config.js');
+} = require('../../config/config.js');
 
 const sequelize = new Sequelize(database, username, password, {
   host,

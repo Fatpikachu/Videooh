@@ -43,8 +43,8 @@ class VideoList extends Component {
     return (
       <div className='wide-wrapper'>
         <div className='paginate'>
-        <button onClick={this.prevPage}> &lt; </button>
-        <button onClick={this.nextPage}> &gt; </button>
+        <button className='prev-page' onClick={this.prevPage}> &lt; </button>
+        <button className='next-page' onClick={this.nextPage}> &gt; </button>
         </div>
         <div className='video-list'>
           {
