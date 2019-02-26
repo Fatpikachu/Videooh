@@ -13,7 +13,7 @@ const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
 const boom = require('boom');
 
-const { accessToken, youtubeAPIKey, vimeoClientId, vimeoAccessToken, vimeoSecret, s3Key, s3ID } = require('../config/config.js')
+const { accessToken, youtubeAPIKey, vimeoClientId, vimeoAccessToken, vimeoSecret, s3Key, s3ID } = require('./config.js')
 
 let Vimeo = require('vimeo').Vimeo;
 let client = new Vimeo(vimeoClientId, vimeoSecret, vimeoAccessToken);
@@ -48,8 +48,6 @@ const uploadFile = (buffer, name, type) => {
 };
 
 app.post('/image-upload/:userID', (request, response) => {
-  console.log('got inside app image upload')
-  console.log('the request.body: ', request.body)
   var { userID } = request.params;
   const form = new multiparty.Form();
     form.parse(request, async (error, fields, files) => {

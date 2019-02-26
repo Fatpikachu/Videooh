@@ -59,15 +59,17 @@ class Homepage extends Component {
   
   componentWillMount = () => {
     let imgurl = localStorage.getItem('imageurl')
+    console.log('the imgurl: ', imgurl)
     if(imgurl !== 'null'){
       this.setState({profilePic: imgurl })
     } else {
-      this.setState({profilePic: localStorage.getItem('defaultImage')})
+      ApiService.myIG()
+      .then((res) =>{
+        this.setState({profilePic: res.data.profile_picture})
+      }).catch(err => {
+        console.log('error from finding IG info')
+      })
     }
-  }
-
-  componentDidMount = () => {
-
   }
 
   render(){
@@ -75,7 +77,7 @@ class Homepage extends Component {
   
     return (
     <div>
-      <h1 className='logo1'> Vide<h1 className='logo2'>OH!</h1>  </h1>
+      <h1 className='welcome-box'> Welcome  </h1>
       <NavLink to='/profile'>
       <div className='user-container'>
       {

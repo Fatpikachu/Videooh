@@ -9,13 +9,8 @@ class EditProfile extends Component {
     this.state = {
       file: null,
       pwMatch: true,
+      profilePic: localStorage.getItem('imageurl'),
     }
-  }
-
-  componentWillMount() {
-    let imageurl = localStorage.getItem('imageurl');
-    let defaultImg = localStorage.getItem('defaultImage')
-    this.setState({profilePic: imageurl === 'null' ? defaultImg : imageurl}) 
   }
 
   handleChange = (e) => {
@@ -25,16 +20,7 @@ class EditProfile extends Component {
   }
 
   handleFileUpload = (event) => {
-    var file = this.refs.imageUploader.files;
-    var reader = new FileReader();
-    var url = reader.readAsDataURL(file[0]);
-    console.log('the file: ', file)
-    reader.onloadend = (e) => {
-        this.setState({
-          profilePic: [reader.result],
-          file: file,
-        })
-    }
+    this.setState({file: event.target.files});
   }
 
   updateProfilePic = () => {
@@ -80,17 +66,12 @@ class EditProfile extends Component {
     }
     if(this.state.file){
       let pic = await this.updateProfilePic();
-    } else if (this.state.profilePic === null){
-      localStorage.setItem('imageurl', null)
     }
     this.props.history.replace('/homepage');
   }
 
   removePhoto = () => {
-    this.setState({
-      profilePic: null,
-      file: null,
-    })
+    this.refs.removePhoto.setAttribute("disabled", "disabled");
   }
 
   cancel = () => {
@@ -102,13 +83,10 @@ class EditProfile extends Component {
   }
 
   render(){
-    let defaultImg = localStorage.getItem('defaultImage');
-    let profilePic = this.state.profilePic;
-    console.log('the profilepic: ', profilePic);
     return (
     <div>
       <form onSubmit={this.submitFile}>
-        <img className='profile-pic' src={profilePic === null ? defaultImg: profilePic} />
+        <img className='profile-pic' src={this.state.profilePic} />
         <br/>
         <input label='upload file' type='file' ref='imageUploader' onChange={this.handleFileUpload} style={{display: 'none'}}/>
         <br/>
