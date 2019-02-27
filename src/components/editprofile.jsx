@@ -9,6 +9,8 @@ class EditProfile extends Component {
     this.state = {
       file: null,
       pwMatch: true,
+      newPW1: '',
+      newPW2: '',
     }
   }
 
@@ -106,9 +108,9 @@ class EditProfile extends Component {
     let profilePic = this.state.profilePic;
     console.log('the profilepic: ', profilePic);
     return (
-    <div>
+    <div className='edit-profile'>
       <form onSubmit={this.submitFile}>
-        <img className='profile-pic' src={profilePic === null ? defaultImg: profilePic} />        <br/>
+        <img className='edit-profile-pic' src={profilePic === null ? defaultImg: profilePic} />        <br/>
         <input label='upload file' type='file' ref='imageUploader' onChange={this.handleFileUpload} style={{display: 'none'}}/>
         <br/>
         <div className='photo-btns'>
@@ -124,14 +126,16 @@ class EditProfile extends Component {
         <input className="update-input" name="userName" type="text"  onChange={this.handleChange} />
         <span className="floating-label">Change Username</span>
         <br/>
-        <input className="update-input" name="newPW1" type="text" onChange={this.handleChange} />
+        <input className="update-input" name="newPW1" type="password" onChange={this.handleChange} />
         <span className="floating-label">New Password</span>
         <br/>
-        <input className="update-input" name="newPW2" type="text" onChange={this.handleChange} />
+        <input className="update-input" name="newPW2" type="password" onChange={this.handleChange} />
         <span className="floating-label">Confirm Password</span>
         <br/>
-        <button type='submit' className="submit" >Save Changes</button>
-        <button className="cancel" onClick={this.cancel}> Cancel </button>
+        <div className='edit-button'>
+          <button className="submit" type='submit' className="submit" >Save Changes</button>
+          <button className="cancel" onClick={this.cancel}> Cancel </button>
+        </div>
       </form>
       <br/>
       {

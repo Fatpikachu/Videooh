@@ -189,7 +189,7 @@ div.video-snippet.vm:hover{
   color: white;
   position: absolute;
   right: 10px;
-  top: 80px;
+  top: 100px;
 }
 
 @-webkit-keyframes load4 {
@@ -336,7 +336,7 @@ div.video-snippet.vm:hover{
   box-shadow: none;
   border: none;
   background: transparent;
-  color: #fff;
+  color: white;
   padding: 20px 100px 20px 45px;
   font-size: 40px;
 }
@@ -359,7 +359,7 @@ div.video-snippet.vm:hover{
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  border: 3px solid white;
+  border: 3px solid black;
   display: block;
   position: relative;
   margin-left: 5px;
@@ -373,7 +373,7 @@ div.video-snippet.vm:hover{
   right: -2px;
   top: 30px;
   display: block;
-  background-color: white;
+  background-color: black;
   transform: rotate(-45deg);
   transition: all 0.5s ease;
 }
@@ -385,7 +385,7 @@ div.video-snippet.vm:hover{
   right: -12px;
   top: 40px;
   display: block;
-  background-color: white;
+  background-color: black;
   transform: rotate(-45deg);
   transition: all 0.5s ease;
 }
@@ -406,4 +406,104 @@ div.video-snippet.vm:hover{
   right: 22px;
   top: 13px;
   height: 18px;
+}
+
+.update-input {
+  margin: 10px;
+}
+
+.edit-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.edit-profile-pic {
+  height: 160px;
+  display: block;
+  margin: auto;
+}
+
+.submit, .cancel {
+  color: white;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 20px;
+  line-height: 30px;
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px #888888;
+  transition: color 0.3s, background-image 0.5s, ease-in-out;
+  margin: 5px;
+}
+
+.submit {
+  background-image: linear-gradient(#40b022 45%, #3c9c21 55%);
+}
+
+.submit:hover {
+  background-image: linear-gradient(#3a8325 49%, #347a20 51%);
+}
+
+.cancel {
+  background-image: linear-gradient(#7e817d 45%, #6b6d6b 55%);
+}
+
+.cancel:hover {
+  background-image: linear-gradient(#565856 45%, #3e3f3e 55%);
+}
+
+.edit-button {
+  text-align: center
+}
+
+.login {
+  position: fixed;
+  right: 90px;
+}
+
+.signup {
+  position: fixed;
+  right: 20px;
+}
+
+.login-component {
+  margin: auto;
+  width: 300px;
+  margin-top: 200px;
+  padding: 10px;
+}
+
+.login-box {
+  font-size: 30px;
+  margin: 20px;
+}
+
+.input {
+  margin: 10px;
+}
+
+.login-button {
+  color: white;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 20px;
+  line-height: 30px;
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  background-image: linear-gradient(#40b022 45%, #3c9c21 55%);
+  box-shadow: 0 2px 2px #888888;
+  transition: color 0.3s, background-image 0.5s, ease-in-out;
+  margin: 15px;
+}
+
+.login-button:hover {
+  background-image: linear-gradient(#3a8325 49%, #347a20 51%);
 }

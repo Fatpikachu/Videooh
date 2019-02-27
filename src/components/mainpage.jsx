@@ -23,8 +23,12 @@ class Mainpage extends Component {
         ? <Homepage />
         : <div>
           <h1 className='welcome-box'> 欢迎来到 <h1 className='logo1'> Vide<h1 className='logo2'>OH!</h1></h1></h1>
-          <NavLink to='/login'> login </NavLink>
-          <NavLink to='/signup'> signup </NavLink>
+            <div className="login">
+              <NavLink to='/login'> Login </NavLink>
+            </div>
+            <div className="signup">
+              <NavLink to='/signup'> Signup </NavLink>
+            </div>
          </div>
         }
       </div>

@@ -42,10 +42,12 @@ class Login extends Component {
 
   render(){
     return (
-    <div>
+    <div className="login-component">
       <div className='login-box'> Login:  </div>
-      <input name='email' type="text" placeholder='email' onChange={this.handleChange} />
-      <input name='password' type="text" placeholder='password'onChange={this.handleChange} />
+      <input className='input' name='email' type="text" placeholder='email' onChange={this.handleChange} />
+      <br/>
+      <input className='input' name='password' type="password" placeholder='password'onChange={this.handleChange} />
+      <br/>
       <button className='login-button' onClick={this.handleLogin}>Login</button>
       {
         this.state.error
