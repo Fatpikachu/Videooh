@@ -30,7 +30,6 @@ class EditProfile extends Component {
     var file = this.refs.imageUploader.files;
     var reader = new FileReader();
     var url = reader.readAsDataURL(file[0]);
-    console.log('the file: ', file)
     reader.onloadend = (e) => {
         this.setState({
           profilePic: [reader.result],
@@ -106,7 +105,6 @@ class EditProfile extends Component {
   render(){
     let defaultImg = localStorage.getItem('defaultImage');
     let profilePic = this.state.profilePic;
-    console.log('the profilepic: ', profilePic);
     return (
     <div className='edit-profile'>
       <form onSubmit={this.submitFile}>

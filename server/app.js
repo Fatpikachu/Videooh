@@ -48,6 +48,7 @@ const uploadFile = (buffer, name, type) => {
 };
 
 app.post('/image-upload/:userID', (request, response) => {
+  console.log('got inside /image-upload')
   var { userID } = request.params;
   const form = new multiparty.Form();
     form.parse(request, async (error, fields, files) => {

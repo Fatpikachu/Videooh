@@ -359,7 +359,7 @@ div.video-snippet.vm:hover{
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  border: 3px solid black;
+  border: 3px solid white;
   display: block;
   position: relative;
   margin-left: 5px;
@@ -373,7 +373,7 @@ div.video-snippet.vm:hover{
   right: -2px;
   top: 30px;
   display: block;
-  background-color: black;
+  background-color: white;
   transform: rotate(-45deg);
   transition: all 0.5s ease;
 }
@@ -385,7 +385,7 @@ div.video-snippet.vm:hover{
   right: -12px;
   top: 40px;
   display: block;
-  background-color: black;
+  background-color: white;
   transform: rotate(-45deg);
   transition: all 0.5s ease;
 }
@@ -468,17 +468,24 @@ div.video-snippet.vm:hover{
 
 .signup {
   position: fixed;
-  right: 20px;
+  right: 18px;
 }
 
-.login-component {
+.signup-component {
   margin: auto;
   width: 300px;
   margin-top: 200px;
   padding: 10px;
 }
 
-.login-box {
+.login-component, .signup-component {
+  margin: auto;
+  width: 300px;
+  margin-top: 200px;
+  padding: 10px;
+}
+
+.login-box, .signup-box {
   font-size: 30px;
   margin: 20px;
 }
@@ -487,7 +494,7 @@ div.video-snippet.vm:hover{
   margin: 10px;
 }
 
-.login-button {
+.login-button, .signup-button {
   color: white;
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
@@ -504,6 +511,6 @@ div.video-snippet.vm:hover{
   margin: 15px;
 }
 
-.login-button:hover {
+.login-button:hover, .signup-button:hover {
   background-image: linear-gradient(#3a8325 49%, #347a20 51%);
 }

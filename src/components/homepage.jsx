@@ -19,6 +19,7 @@ class Homepage extends Component {
       link: '',
       loading: false,
     }
+    
   }
 
   setData = (data) => {
@@ -44,7 +45,6 @@ class Homepage extends Component {
       .then(results => {
         results.query = query;
         this.setData(results);
-        console.log('the results from all 3: ', results)
       }).catch(err => console.log('error from searching: ', err))
   }
 
@@ -62,27 +62,23 @@ class Homepage extends Component {
     if(imgurl !== 'null'){
       this.setState({profilePic: imgurl })
     } else {
-      this.setState({profilePic: localStorage.getItem('defaultImage')})
+      let img = localStorage.getItem('defaultImage')
+      this.setState({profilePic: img})
     }
   }
 
-  componentDidMount = () => {
+  // componentDidMount = () => {
 
-  }
+  // }
 
-  render(){
+  render() {
     let username = localStorage.getItem('username');
-  
     return (
     <div>
       <h1 className='logo1'> Vide<h1 className='logo2'>OH!</h1>  </h1>
       <NavLink to='/profile'>
-      <div className='user-container'>
-      {
-          this.state.profilePic
-          ? <img className='profile-pic' src={this.state.profilePic} />
-          : null
-      }
+      <div className='user-container'> 
+        <img className='profile-pic' src={this.state.profilePic} />
         <div className='username'>{username}</div>
       </div>
       </NavLink>
@@ -101,7 +97,6 @@ class Homepage extends Component {
     </div>
     )
   }
-
 }
 
 export default Homepage;

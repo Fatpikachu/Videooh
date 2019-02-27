@@ -26,14 +26,17 @@ class Login extends Component {
         localStorage.setItem('userID', decoded.id);
         localStorage.setItem('imageurl', decoded.imageurl);
         this.setState({error: false})
+      }).then(()=>{
         ApiService.myIG()
         .then((res) =>{
           localStorage.setItem('defaultImage', res.data.profile_picture)
-        }).catch(err => {
+        }).then(()=> {
+          this.props.history.push('/homepage')
+        })
+        .catch(err => {
           console.log('error from finding IG image')
         })
-        this.props.history.push('/homepage')
-        })
+      })
       .catch(err => {
         console.log('err in handleLogin', err)
         this.setState({error: true})

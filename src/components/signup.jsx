@@ -40,7 +40,7 @@ class Signup extends Component {
   render(){
 
     return (
-      <div>
+      <div className="signup-component">
       {
         !this.state.error && this.state.signup
         ?
@@ -51,10 +51,13 @@ class Signup extends Component {
         :
       <div>
       <div className='signup-box'> Signup:  </div>
-      <input name='username' placeholder='Username' type='text' onChange={this.handleChange} />
-      <input name='email' placeholder='Email' type="password" onChange={this.handleChange} />
-      <input name='password' placeholder='Password' type="password" onChange={this.handleChange} />
-      <button onClick={this.handleSignUp}>submit</button>
+      <input className='input' name='username' placeholder='Username' type='text' onChange={this.handleChange} />
+      <br/>
+      <input className='input' name='email' placeholder='Email' type="text" onChange={this.handleChange} />
+      <br/>
+      <input className='input' name='password' placeholder='Password' type="password" onChange={this.handleChange} />
+      <br/>
+      <button className="signup-button" onClick={this.handleSignUp}>submit</button>
       {
         this.state.error
         ? <div>Email already exists</div>
