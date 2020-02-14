@@ -121,6 +121,7 @@ app.get('/myIG', async (req, res) => {
 })
 
 app.get('/searchVids', async (req, res) => {
+  console.log('the youtubeAPI key is>>>: ', youtubeAPIKey)
   const url = `https://www.googleapis.com/youtube/v3/search?` +
     `q=${req.query.q}` +
     `&key=${youtubeAPIKey}` +
@@ -184,6 +185,7 @@ app.get('/searchVids', async (req, res) => {
     var dm = await dmVids.json();
 
     let vids = { yt, dm, vmData }
+    console.log('the vidz!!: ', vids)
     res.json(vids);
 })
 

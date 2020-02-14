@@ -39,7 +39,7 @@ class VideoList extends Component {
       }
     }
     let allData = ytData.concat(dmData, vmData)
-    console.log('the allData: ', allData)
+    console.log('the youtubeData: ', this.props.ytData)
     return (
       <div className='wide-wrapper'>
         <div className='paginate'>

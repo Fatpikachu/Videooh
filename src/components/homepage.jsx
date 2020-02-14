@@ -23,6 +23,7 @@ class Homepage extends Component {
   }
 
   setData = (data) => {
+    console.log('the yt data: ', data.yt.items)
     this.setState({ nextPageToken: data.yt.nextPageToken || '', 
       prevPageToken: data.yt.prevPageToken || '',
       query: data.query,

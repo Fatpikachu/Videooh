@@ -17,8 +17,6 @@ body, html {
 }
 
 
-
-
 h1 {
   display: inline;
 }
@@ -131,12 +129,14 @@ div.video-snippet.vm:hover{
   position: absolute;
   right: 200px;
   margin-top: 10px;
+  outline: none;
 }
 
 .prev-page, .next-page {
   background-color: rgb(55, 119, 216);
   color: white;
-  width: 80px
+  width: 80px;
+  outline: none;
 }
 
 #no-vid {
@@ -190,6 +190,7 @@ div.video-snippet.vm:hover{
   position: absolute;
   right: 10px;
   top: 100px;
+  outline: none;
 }
 
 @-webkit-keyframes load4 {
@@ -258,6 +259,7 @@ div.video-snippet.vm:hover{
   cursor: pointer;
   margin-left: 10px;
   right: 5px;
+  outline: none;
 }
 
 .remove-photo:hover {
@@ -279,6 +281,7 @@ div.video-snippet.vm:hover{
   font-style: bold;
   cursor: pointer;
   margin-left: 10px;
+  outline: none;
 }
 
 .upload-photo:hover {
@@ -341,7 +344,7 @@ div.video-snippet.vm:hover{
   font-size: 40px;
 }
 .search-box:focus {
-  outline: none;
+  
 }
 
 .search-button {
@@ -443,6 +446,7 @@ div.video-snippet.vm:hover{
 
 .submit {
   background-image: linear-gradient(#40b022 45%, #3c9c21 55%);
+  outline: none;
 }
 
 .submit:hover {
@@ -451,6 +455,7 @@ div.video-snippet.vm:hover{
 
 .cancel {
   background-image: linear-gradient(#7e817d 45%, #6b6d6b 55%);
+  outline: none;
 }
 
 .cancel:hover {
@@ -464,11 +469,13 @@ div.video-snippet.vm:hover{
 .login {
   position: fixed;
   right: 90px;
+  outline: none;
 }
 
 .signup {
   position: fixed;
   right: 18px;
+  outline: none;
 }
 
 .signup-component {
@@ -488,6 +495,7 @@ div.video-snippet.vm:hover{
 .login-box, .signup-box {
   font-size: 30px;
   margin: 20px;
+  outline: none;
 }
 
 .input {

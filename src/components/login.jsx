@@ -27,16 +27,16 @@ class Login extends Component {
         localStorage.setItem('imageurl', decoded.imageurl);
         this.setState({error: false})
       }).then(()=>{
-        ApiService.myIG()
-        .then((res) =>{
-          localStorage.setItem('defaultImage', res.data.profile_picture)
-        }).then(()=> {
+        // ApiService.myIG()
+        // .then((res) =>{
+        //   localStorage.setItem('defaultImage', res.data.profile_picture)
+        // }).then(()=> {
           this.props.history.push('/homepage')
         })
-        .catch(err => {
-          console.log('error from finding IG image')
-        })
-      })
+      //   .catch(err => {
+      //     console.log('error from finding IG image')
+      //   })
+      // })
       .catch(err => {
         console.log('err in handleLogin', err)
         this.setState({error: true})
@@ -54,7 +54,7 @@ class Login extends Component {
       <button className='login-button' onClick={this.handleLogin}>Login</button>
       {
         this.state.error
-        ? <div>Email/password invalid foo</div>
+        ? <div>Email/password invalid</div>
         : <div></div>
       }
     </div>
