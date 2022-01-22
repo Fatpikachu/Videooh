@@ -25,7 +25,7 @@
     "multer-s3": "^2.9.0",
     "multiparty": "^4.2.1",
     "mysql2": "^1.6.4",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.1.1",
     "popper.js": "^1.14.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
