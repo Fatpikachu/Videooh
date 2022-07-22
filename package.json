@@ -15,7 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
-    "file-type": "^10.7.1",
+    "file-type": "^16.5.4",
     "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
